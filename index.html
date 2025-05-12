@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Penjualan Futuristik Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-gradient text-white min-h-screen font-sans overflow-x-hidden">
+    <div class="grid grid-cols-12 gap-4 p-4 h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="col-span-2 bg-gray-900 bg-opacity-70 rounded-xl p-4 shadow-xl border border-blue-900/30 relative">
+            <div class="logo mb-8 text-center">
+                <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">SalesPro</h2>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li class="nav-item active">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-blue-900/30 transition-colors">
+                            <i class="fas fa-chart-line mr-3"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-blue-900/30 transition-colors">
+                            <i class="fas fa-shopping-cart mr-3"></i>
+                            Penjualan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-blue-900/30 transition-colors">
+                            <i class="fas fa-users mr-3"></i>
+                            Pelanggan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-blue-900/30 transition-colors">
+                            <i class="fas fa-cog mr-3"></i>
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="absolute bottom-4 left-0 right-0 px-4">
+                <div class="user-profile bg-gray-800 rounded-lg p-3 flex items-center">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-3">
+                        <img src="/api/placeholder/48/48" alt="Profil Pengguna" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Admin</h4>
+                        <p class="text-xs text-gray-400">Manajer Penjualan</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="col-span-10 grid grid-cols-12 gap-4">
+            <!-- Top Header with Quick Stats -->
+            <header class="col-span-12 grid grid-cols-4 gap-4">
+                <div class="stat-card bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-xl p-4 shadow-lg hover:scale-105 transition-transform">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-300">Total Penjualan</h3>
+                            <p class="text-3xl font-bold text-green-400">Rp 450.000.000</p>
+                        </div>
+                        <i class="fas fa-chart-line text-3xl text-blue-400 opacity-70"></i>
+                    </div>
+                    <div class="mt-2 flex items-center text-green-500">
+                        <i class="fas fa-arrow-up mr-2"></i>
+                        <span>12.5% dari bulan lalu</span>
+                    </div>
+                </div>
+                <div class="stat-card bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-xl p-4 shadow-lg hover:scale-105 transition-transform">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-300">Produk Terlaris</h3>
+                            <p class="text-3xl font-bold text-blue-400">Laptop X1</p>
+                        </div>
+                        <i class="fas fa-trophy text-3xl text-yellow-400 opacity-70"></i>
+                    </div>
+                    <div class="mt-2 flex items-center text-gray-400">
+                        <span>Terjual 237 Unit</span>
+                    </div>
+                </div>
+                <div class="stat-card bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-xl p-4 shadow-lg hover:scale-105 transition-transform">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-300">Pelanggan Baru</h3>
+                            <p class="text-3xl font-bold text-purple-400">237</p>
+                        </div>
+                        <i class="fas fa-user-plus text-3xl text-purple-400 opacity-70"></i>
+                    </div>
+                    <div class="mt-2 flex items-center text-green-500">
+                        <i class="fas fa-arrow-up mr-2"></i>
+                        <span>15.3% pertumbuhan</span>
+                    </div>
+                </div>
+                <div class="stat-card bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-xl p-4 shadow-lg hover:scale-105 transition-transform">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-300">Proyeksi Bulan Ini</h3>
+                            <p class="text-3xl font-bold text-yellow-400">Rp 650.000.000</p>
+                        </div>
+                        <i class="fas fa-bullseye text-3xl text-yellow-400 opacity-70"></i>
+                    </div>
+                    <div class="mt-2 flex items-center text-gray-400">
+                        <span>Target tercapai 75%</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Grafik Utama dan Detail -->
+            <section class="col-span-8 grid grid-cols-2 gap-4">
+                <div class="col-span-2 bg-gray-900/50 rounded-xl p-6 shadow-xl border border-blue-900/30">
+                    <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-chart-area mr-3 text-blue-400"></i>
+                        Analisis Penjualan Bulanan
+                    </h2>
+                    <div class="chart-container relative h-96">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-900/50 rounded-xl p-6 shadow-xl border border-blue-900/30">
+                    <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-box-open mr-3 text-green-400"></i>
+                        Top Produk
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between bg-gray-800 rounded-lg p-3 hover:bg-blue-900/30 transition-colors">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-500 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-laptop text-white"></i>
+                                </div>
+                                <span>Laptop X1</span>
+                            </div>
+                            <span class="font-bold text-green-400">Rp 120.000.000</span>
+                        </li>
+                        <li class="flex items-center justify-between bg-gray-800 rounded-lg p-3 hover:bg-blue-900/30 transition-colors">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-purple-500 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-white"></i>
+                                </div>
+                                <span>Smartphone Pro</span>
+                            </div>
+                            <span class="font-bold text-green-400">Rp 85.000.000</span>
+                        </li>
+                        <li class="flex items-center justify-between bg-gray-800 rounded-lg p-3 hover:bg-blue-900/30 transition-colors">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-green-500 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-tablet-alt text-white"></i>
+                                </div>
+                                <span>Tablet Lite</span>
+                            </div>
+                            <span class="font-bold text-green-400">Rp 45.000.000</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-900/50 rounded-xl p-6 shadow-xl border border-blue-900/30">
+                    <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-percent mr-3 text-yellow-400"></i>
+                        Performa Penjualan
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Konversi Penjualan</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Rata-rata Transaksi</span>
+                                <span>Rp 5.200.000</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-green-600 h-2.5 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Riwayat Transaksi dan Notifikasi -->
+            <section class="col-span-4 grid grid-cols-1 gap-4">
+                <div class="bg-gray-900/50 rounded-xl p-6 shadow-xl border border-blue-900/30">
+                    <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-history mr-3 text-purple-400"></i>
+                        Transaksi Terbaru
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="bg-gray-800 rounded-lg p-3 flex justify-between items-center hover:bg-blue-900/30 transition-colors">
+                            <div>
+                                <p class="font-semibold">Proyeksi Pertumbuhan</p>
+                                <p class="text-sm text-gray-400">Target bulan depan meningkat 20%</p>
+                            </div>
+                        </div>
+                        <div class="bg-green-900/20 border border-green-700/30 rounded-lg p-3 flex items-center">
+                            <i class="fas fa-award mr-3 text-green-400"></i>
+                            <div>
+                                <p class="font-semibold">Pencapaian Target</p>
+                                <p class="text-sm text-gray-400">Berhasil mencapai 75% target tahunan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button class="bg-gradient-to-r from-blue-500 to-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+            <i class="fas fa-plus text-2xl"></i>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="script.js"></script>
+</body>
+</html>
