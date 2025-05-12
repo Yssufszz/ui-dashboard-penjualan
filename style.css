@@ -1,4 +1,4 @@
-/* Futuristic Dark Theme with Advanced Animations */
+/* Futuristic Dark Theme with Mobile Responsiveness */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 /* Keyframe Animations */
@@ -20,7 +20,7 @@
     100% { transform: translateY(0px); }
 }
 
-/* Global Styles */
+/* Global Mobile-First Styles */
 :root {
     --bg-dark-primary: #0a0f1b;
     --bg-dark-secondary: #121827;
@@ -29,13 +29,17 @@
     --accent-purple: #8b5cf6;
 }
 
-body {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark-primary);
-    background-image: 
-        radial-gradient(at 47% 33%, hsla(162.00, 77%, 40%, 0.11) 0, transparent 59%),
-        radial-gradient(at 82% 65%, hsla(218.00, 100%, 50%, 0.098) 0, transparent 55%);
-    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
 }
@@ -46,94 +50,191 @@ body {
     animation: gradientFlow 15s ease infinite;
 }
 
-/* Enhanced Card Styles */
+/* Responsive Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(10px);
+    display: none;
+    z-index: 1000;
+}
+
+.mobile-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-item.active {
+    color: var(--accent-blue);
+}
+
+.mobile-nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.mobile-nav-item span {
+    font-size: 0.7rem;
+}
+
+/* Responsive Card Styles */
 .stat-card {
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(145deg, rgba(31,41,55,0.6), rgba(17,24,39,0.6));
     transition: all 0.3s ease;
-    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, 
-        rgba(59, 130, 246, 0.1) 0%, 
-        transparent 70%);
-    transform: rotate(-45deg);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.stat-card:hover::before {
-    opacity: 1;
-}
-
-/* Sidebar Navigation */
-.nav-item {
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-item.active::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 70%;
-    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-}
-
-/* Chart and Visualization Enhancements */
+/* Responsive Chart */
 .chart-container {
-    position: relative;
-    perspective: 1000px;
-}
-
-.chart-container canvas {
-    transition: transform 0.5s ease;
-}
-
-.chart-container:hover canvas {
-    transform: rotateX(5deg) scale(1.02);
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(17, 24, 39, 0.7);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-    border-radius: 4px;
+    width: 100%;
+    height: 250px; /* Reduced height for mobile */
 }
 
 /* Floating Action Button */
-.fixed button {
-    animation: float 3s ease-in-out infinite;
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+.fab-container {
+    position: fixed;
+    bottom: 5rem; /* Positioned above mobile nav */
+    right: 1rem;
+    z-index: 1000;
+}
+
+.fab-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(59,130,246,0.3);
     transition: all 0.3s ease;
 }
 
-.fixed button:hover {
-    transform: scale(1.1) rotate(90deg);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.6);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1280px) {
+/* Media Queries for Responsiveness */
+@media (max-width: 640px) {
+    /* Mobile-specific adjustments */
     body {
         font-size: 14px;
     }
+
+    .grid-container {
+        grid-template-columns: 100%;
+    }
+
+    .stat-card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .stat-card > div:first-child {
+        flex-grow: 1;
+    }
+
+    .stat-card i {
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    /* Show mobile navigation */
+    .desktop-sidebar {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    /* Adjust chart and layout */
+    .chart-container {
+        height: 200px;
+    }
+
+    /* Responsive typography */
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1rem; }
+}
+
+@media (min-width: 641px) {
+    /* Hide mobile navigation on larger screens */
+    .mobile-nav {
+        display: none !important;
+    }
+
+    .desktop-sidebar {
+        display: block;
+    }
+}
+
+/* Accessibility and Performance Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Light/Dark Mode Toggle */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+}
+
+/* Additional Mobile Optimizations */
+input, 
+button, 
+select, 
+textarea {
+    font-size: 16px; /* Prevent zoom on input focus */
+}
+
+/* Scrollbar for touch devices */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(59,130,246,0.5) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(59,130,246,0.5);
+    border-radius: 3px;
 }
